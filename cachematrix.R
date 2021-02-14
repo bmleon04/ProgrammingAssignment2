@@ -11,7 +11,7 @@ n2 <- matrix(c(5/8, -1/8, -7/8, 3/8), nrow=2, ncol=2)
 makeCacheMatrix <- function(x = matrix()) {
   inv <- NULL
   set <- function(y) { 
-    x <<- y  ## assigns input arg to the x pbjext in parent env.
+    x <<- y  ## assigns input arg to the x objext in parent env.
     inv <<- NULL  ## clears any previously cached inverse matrix
   }
   get <- function() x
@@ -24,7 +24,10 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
+## This function actually solves for the inverse of the matrix by first 
+## checking to make sure the solution has not been cached previously, then 
+## solving for the inverse of the matrix and returning the answer and caching 
+## the solution for future use
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
